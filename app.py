@@ -1,14 +1,23 @@
-from flask import Flask, render_template
-from storage.database import init_db
+from flask import Flask
+from extensions import db
+from config import Config
+from routes import init_routes
 
-app = Flask(__name__)
-init_db()
+# from models import User, Account
 
 
-@app.route("/")
-def dashboard():
-    return render_template("dashboard.html")
+def create_app():
+    app = Flask(__name__)
+    init_routes(app)
+    app.config.from_object(Config)
+
+    db.init_app(app)
+
+    with app.app_context():
+        db.create_all()
+    return app
 
 
 if __name__ == "__main__":
+    app = create_app()
     app.run(debug=True)
