@@ -46,4 +46,4 @@ mkdir -p ${PROJECT_NAME}/{models,routes,services,templates,static}
 
 echo "=== Konfiguracja zakończona pomyślnie! ==="
 echo "Aby aktywować środowisko: source ${VENV_DIR}/bin/activate"
-echo "Aby uruchomić aplikację: python3 app.py"
+echo "Aby uruchomić aplikację: python3 run.py"

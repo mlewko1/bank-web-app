@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <nav class="bg-blue-600 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo / Nazwa aplikacji -->
+            <a href="{{ url_for('main.home') }}" class="text-xl font-bold hover:text-blue-200">Bank App</a>
+          
+            <!-- Menu nawigacyjne -->
+            <div class="flex space-x-4">
+                <a href="{{ url_for('auth_login.login') }}"
+                   class="px-4 py-2 bg-blue-700 rounded-lg hover:bg-blue-800 transition duration-300">
+                    Logowanie
+                </a>
+                <a href="{{ url_for('auth_register.register') }}"
+                   class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-700 transition duration-300">
+                    Rejestracja
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto mt-6">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
